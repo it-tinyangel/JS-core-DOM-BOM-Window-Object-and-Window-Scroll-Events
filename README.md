@@ -1,2 +1,8 @@
-# JS-core-DOM-BOM-Window-Object-and-Window-Scroll-Events
-Module 3. JS Core. Lesson 15. Task 2. The Document Object Model and The Browser Object Model: Window Object, Window Scroll Events. To Do List
+## Module 3. JS Core. Lesson 15. Task 2
+
+### The Document Object Model. The HTML DOM. Document, Events, Interfaces
+***
+
+### To-Do List
+
+Implementation of a functional To-Do List with basic task addition, completion, and deletion functionalities.
