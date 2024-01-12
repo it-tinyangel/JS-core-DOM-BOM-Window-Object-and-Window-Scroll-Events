@@ -1,0 +1,188 @@
+:root {
+	--header-font: bold 1.25em Arial, Helvetica, sans-serif;
+	--main-font: normal 1em Arial, Helvetica, sans-serif;
+
+	--light-color: #fff;
+	--dark-color: #131212;
+	--main-color: rgb(18, 112, 190);
+	--danger-color: rgb(208, 20, 23);
+	--primary-danger-color: rgb(254, 154, 156);
+
+	--size-m: 1rem;
+	--size-s: .5rem;
+	--size-xs: .25rem;
+
+	--extra-large-spacing: calc(var(--size-m) * 2);
+	--large-spacing: var(--size-m);
+	--base-spacing: var(--size-s);
+	--small-spacing: var(--size-xs);
+	--extra-small-spacing: calc(var(--size-xs) / 2);
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	max-width: 100vw;
+	min-height: 100vh;
+	color: var(--dark-color);
+	font: var(--main-font);
+}
+
+section.to-do_list {
+	background: url('../src/laptop.png') center center/cover no-repeat;
+}
+
+section.container {
+	width: 100%;
+	height: 100vh;
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+
+div.to-do_list__content {
+	margin: 0.2rem 0 0 4.5rem;
+	padding: 2rem 0;
+	width: 42rem;
+	height: 32rem;
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	gap: 1.75rem;
+}
+
+div.to-do_list__add,
+div.to-do_list__all,
+div.to-do_list__split {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1.5rem;
+}
+
+div.to-do_list__all {
+	align-items: flex-start;
+}
+
+div.to-do_list__split {
+	width: .5rem;
+	height: 100%;
+	background: var(--dark-color);
+}
+
+h2.to-do_list__title {
+	margin: 0.5rem auto 0;
+	font: var(--header-font);
+	color: var(--main-color);
+}
+
+ul.to-do_list__all_item {
+	display: flex;
+	flex-direction: column;
+	gap: .5rem;
+}
+
+ul.to-do_list__all_item {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+ul.to-do_list__all_item li {
+	padding: 12px 8px 12px 48px;
+	position: relative;
+	border-radius: var(--base-spacing);
+
+	list-style-type: none;
+	cursor: pointer;
+}
+
+ul li:hover {
+	background: #eee;
+}
+
+ul li.checked::before {
+	content: '';
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	border-color: var(--main-color);
+	border-style: solid;
+	border-width: 0 2px 2px 0;
+	transform: rotate(45deg);
+	height: 15px;
+	width: 7px;
+}
+
+ul li.close::after {
+	content: '\00d7';
+	position: absolute;
+	top: 8px;
+	right: 12px;
+	font-size: 1.5em;
+	color: var(--main-color);
+}
+
+input.to-do_list__input {
+	margin: 0;
+	padding: .25rem 0rem;
+	width: 100%;
+	border: none;
+	border: 0;
+	outline: 0;
+	border-radius: 0;
+	border-bottom: 2px solid var(--dark-color);
+	font: var(--main-font);
+}
+
+button.to-do_list__add_btn {
+	width: 120px;
+	height: 40px;
+	border: none;
+	outline: none;
+	border-radius: var(--base-spacing);
+	font: var(--main-font);
+	color: var(--light-color);
+	background-color: var(--dark-color);
+	transition: transform .2s ease;
+}
+
+button.to-do_list__add_btn:hover {
+	transform: scale(1.01);
+	background-color: var(--main-color);
+	cursor: pointer;
+}
+
+div.to-do_list__alert_empty-add.visually-hidden,
+div.to-do_list__alert_last-item.visually-hidden {
+	display: none;
+}
+
+div.to-do_list__alert_empty-add,
+div.to-do_list__alert_last-item {
+	width: 100%;
+	max-width: 500px;
+	height: 100px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: .5rem;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	font-size: large;
+	border-radius: var(--extra-large-spacing);
+	color: var(--danger-color);
+	background-color: var(--primary-danger-color);
+}
+
+p.alert__title {
+	font-weight: bold;
+}

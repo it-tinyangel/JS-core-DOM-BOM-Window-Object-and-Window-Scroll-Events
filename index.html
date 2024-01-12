@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>To Do List</title>
+	<link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+	<section class="to-do_list container">
+		<div class="to-do_list__content">
+
+			<div class="to-do_list__all">
+				<h2 class="to-do_list__title">To Do List:</h2>
+
+				<ul class="to-do_list__all_item">
+					<li class="checked close"><span>List_item</span></li>
+					<li class="to-do_list__item"><span>List_item</span></li>
+					<li class="to-do_list__item"><span>List_item</span></li>
+					<li class="to-do_list__item"><span>List_item</span></li>
+				</ul>
+			</div>
+
+			<div class="to-do_list__split"></div>
+
+			<div class="to-do_list__add">
+				<h2 class="to-do_list__title">Add a new task:</h2>
+
+				<input type="text" class="to-do_list__input">
+				<button type="button" class="to-do_list__add_btn"><span>Add task</span></button>
+			</div>
+
+			<div class="to-do_list__alert_empty-add visually-hidden">
+				<p class="alert__title">Warning!</p>
+				<p>An empty field cannot be added</p>
+			</div>
+
+			<div class="to-do_list__alert_last-item visually-hidden">
+				<p class="alert__title">Warning!</p>
+				<p>You cannot delete the last task from the list</p>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/script.js"></script>
+</body>
+
+</html>
