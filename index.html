@@ -5,40 +5,38 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>To Do List</title>
 	<link rel="stylesheet" href="styles/style.css">
+	<title>To Do List</title>
 </head>
 
 <body>
-	<section class="to-do_list container">
-		<div class="to-do_list__content">
+	<section class="todo container">
+		<div class="todo__content">
 
-			<div class="to-do_list__all">
-				<h2 class="to-do_list__title">To Do List:</h2>
+			<div id="taskAdd" class="todo__new-task">
+				<h2 class="todo__title">Add a new task:</h2>
 
-				<ul class="to-do_list__all_item">
-					<li class="checked close"><span>List_item</span></li>
-					<li class="to-do_list__item"><span>List_item</span></li>
-					<li class="to-do_list__item"><span>List_item</span></li>
-					<li class="to-do_list__item"><span>List_item</span></li>
+				<input type="text" id="taskInput" class="todo__new-task__input">
+				<button type="button" onclick="addTask()" class="todo__new-task__btn"><span>Add task</span></button>
+			</div>
+
+			<div id="taskList" class="todo__task-list">
+				<h2 class="todo__title">To Do List:</h2>
+
+				<ul id="listItem" class="todo__task-list__items">
+					<!-- <li class="todo__task-list__item select"><span>List_item</span><span class="close"></span></li> -->
+					<!-- <li class="todo__task-list__item"><span>List_item</span></li> -->
 				</ul>
 			</div>
 
-			<div class="to-do_list__split"></div>
+			<div class="todo__split"></div>
 
-			<div class="to-do_list__add">
-				<h2 class="to-do_list__title">Add a new task:</h2>
-
-				<input type="text" class="to-do_list__input">
-				<button type="button" class="to-do_list__add_btn"><span>Add task</span></button>
-			</div>
-
-			<div class="to-do_list__alert_empty-add visually-hidden">
+			<div class="todo__alert_not-add visually-hidden">
 				<p class="alert__title">Warning!</p>
 				<p>An empty field cannot be added</p>
 			</div>
 
-			<div class="to-do_list__alert_last-item visually-hidden">
+			<div class="todo__alert_not-delete visually-hidden">
 				<p class="alert__title">Warning!</p>
 				<p>You cannot delete the last task from the list</p>
 			</div>
