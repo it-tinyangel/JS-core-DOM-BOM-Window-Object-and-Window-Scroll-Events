@@ -16,29 +16,29 @@
 			<div id="taskAdd" class="todo__new-task">
 				<h2 class="todo__title">Add a new task:</h2>
 
-				<input type="text" id="taskInput" class="todo__new-task__input">
-				<button type="button" onclick="addTask()" class="todo__new-task__btn"><span>Add task</span></button>
+				<input type="text" class="todo__new-task__input">
+				<button type="button" class="todo__new-task__btn"><span>Add task</span></button>
 			</div>
 
 			<div id="taskList" class="todo__task-list">
 				<h2 class="todo__title">To Do List:</h2>
 
 				<ul id="listItem" class="todo__task-list__items">
-					<!-- <li class="todo__task-list__item select"><span>List_item</span><span class="close"></span></li> -->
-					<!-- <li class="todo__task-list__item"><span>List_item</span></li> -->
 				</ul>
 			</div>
 
 			<div class="todo__split"></div>
 
-			<div class="todo__alert_not-add visually-hidden">
-				<p class="alert__title">Warning!</p>
-				<p>An empty field cannot be added</p>
+			<div class="todo__alert empty-input visually-hidden">
+				<div class="close-alert empty-input"></div>
+				<p><strong>Warning!</strong></p>
+				<p>An empty field cannot be added.</p>
 			</div>
 
-			<div class="todo__alert_not-delete visually-hidden">
-				<p class="alert__title">Warning!</p>
-				<p>You cannot delete the last task from the list</p>
+			<div class="todo__alert last-item visually-hidden">
+				<div class="close-alert last-item"></div>
+				<p><strong>Warning!</strong></p>
+				<p>You can't delete the last task from the list.</p>
 			</div>
 		</div>
 	</section>
