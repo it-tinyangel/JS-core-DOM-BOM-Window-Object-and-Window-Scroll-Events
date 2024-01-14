@@ -6,23 +6,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	let alertEmptyInput = document.querySelector('.todo__alert.empty-input');
 	let alertLastItem = document.querySelector('.todo__alert.last-item');
 
-	let iconCloseAlert1 = document.querySelector('.close-alert.empty-input');
-	let iconCloseAlert2 = document.querySelector('.close-alert.last-item');
+	function closeErrorMessage() {
+		alertEmptyInput.classList.add('visually-hidden');
+		alertLastItem.classList.add('visually-hidden');
+	}
 
 	function errorMessageEmptyField() {
-		alertEmptyInput.style.display = 'flex';
+		alertEmptyInput.classList.remove('visually-hidden');
 
-		iconCloseAlert1.addEventListener('click', () => {
-			alertEmptyInput.style.display = "none";
-		});
+		alertEmptyInput.addEventListener('click', closeErrorMessage);
 	}
 
 	function errorMessageLastItem() {
-		alertLastItem.style.display = 'flex';
+		alertLastItem.classList.remove('visually-hidden');
 
-		iconCloseAlert2.addEventListener('click', () => {
-			alertLastItem.style.display = "none";
-		});
+		alertLastItem.addEventListener('click', closeErrorMessage);
 	}
 
 	function controlListContent() {
@@ -30,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		let newTaskText = taskInput.value.trim();
 
 		if (listItemText.trim() != '') {
+			// Create a new elements
 			let newListItem = document.createElement("li");
 
 			newListItem.className = "li";
@@ -41,19 +40,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			let newListItemText = document.createElement('span');
 			newListItemText.textContent = newTaskText; // Set the text is received from input
-	
+
 			let iconClose = document.createElement("span");
 			iconClose.className = "close";
 
+			// Add new elements to li
 			newListItem.appendChild(iconBallot);
 			newListItem.appendChild(newListItemText);
 			newListItem.appendChild(iconClose);
 
+			// Add a new li element to the ul
 			listItems.appendChild(newListItem);
 
 			taskInput.value = '';
 
-			function toggleIcons() {
+			function toggleBallotIcons() {
 				iconBallot.classList.toggle("ballot");
 				iconBallot.classList.toggle("ballot-check");
 			}
@@ -68,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
 				}
 			}
 
-			newListItem.addEventListener("click", toggleIcons);
+			// Add an event listeners to the new li element
+			newListItem.addEventListener("click", toggleBallotIcons);
 			iconClose.addEventListener('click', deleteTask);
 		} else if (listItemText.trim() == '') {
 			errorMessageEmptyField();
