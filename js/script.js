@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
 			taskInput.value = '';
 
 			function toggleBallotIcons(event) {
-				if (event.target === newListItem) {
+				if (event.target === newListItem || event.target === iconBallot) {
 					iconBallot.classList.toggle("ballot");
 					iconBallot.classList.toggle("ballot-check");
 				}
