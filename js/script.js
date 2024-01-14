@@ -35,25 +35,18 @@ document.addEventListener('DOMContentLoaded', () => {
 			let newListItem = document.createElement("li");
 
 			newListItem.className = "li";
-			newListItem.appendChild(textNode);
-
 			newListItem.classList.add('todo__task-list__item');
 
 			let iconBallot = document.createElement("span");
 			iconBallot.className = "icon";
 			iconBallot.classList.add("ballot");
 
-			iconBallot.appendChild(textNode);
-
 			let newListItemText = document.createElement('span');
 			newListItemText.textContent = newTaskText; // Set the text is received from input
-
 			newListItemText.appendChild(textNode);
 
 			let iconClose = document.createElement("span");
 			iconClose.className = "close";
-
-			iconClose.appendChild(textNode);
 
 			newListItem.appendChild(iconBallot);
 			newListItem.appendChild(newListItemText);
