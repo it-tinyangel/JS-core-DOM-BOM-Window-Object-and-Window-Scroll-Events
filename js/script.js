@@ -30,8 +30,6 @@ document.addEventListener('DOMContentLoaded', () => {
 		let newTaskText = taskInput.value.trim();
 
 		if (listItemText.trim() != '') {
-			let textNode = document.createTextNode("");
-
 			let newListItem = document.createElement("li");
 
 			newListItem.className = "li";
@@ -43,8 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			let newListItemText = document.createElement('span');
 			newListItemText.textContent = newTaskText; // Set the text is received from input
-			newListItemText.appendChild(textNode);
-
+	
 			let iconClose = document.createElement("span");
 			iconClose.className = "close";
 
