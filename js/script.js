@@ -1,28 +1,89 @@
-	const taskInput = document.getElementById('taskInput');
-	const listItem = document.getElementById('listItem');
+document.addEventListener('DOMContentLoaded', () => {
+	let taskInput = document.querySelector('.todo__new-task__input');
+	let listItems = document.querySelector('.todo__task-list__items');
+	let addTaskButton = document.querySelector('.todo__new-task__btn');
 
-	function addTask() {
-		let newItem = document.getElementById('taskInput').value;
-		const taskText = taskInput.value.trim();
+	let alertEmptyInput = document.querySelector('.todo__alert.empty-input');
+	let alertLastItem = document.querySelector('.todo__alert.last-item');
 
-		if (newItem.trim() == '' || newItem.trim() == null) {
-			// alert('Warning! An empty field cannot be added.');
-			return;
-		} else {
-			let li = document.createElement('li');
+	let iconCloseAlert1 = document.querySelector('.close-alert.empty-input');
+	let iconCloseAlert2 = document.querySelector('.close-alert.last-item');
 
-			li.textContent = taskText;
-			listItem.appendChild(li);
-			li.classList.add('todo__task-list__item');
+	function errorMessageEmptyField() {
+		alertEmptyInput.style.display = 'flex';
+
+		iconCloseAlert1.addEventListener('click', () => {
+			alertEmptyInput.style.display = "none";
+		});
+	}
+
+	function errorMessageLastItem() {
+		alertLastItem.style.display = 'flex';
+
+		iconCloseAlert2.addEventListener('click', () => {
+			alertLastItem.style.display = "none";
+		});
+	}
+
+	function controlListContent() {
+		let listItemText = taskInput.value;
+		let newTaskText = taskInput.value.trim();
+
+		if (listItemText.trim() != '') {
+			let textNode = document.createTextNode("");
+
+			let newListItem = document.createElement("li");
+
+			newListItem.className = "li";
+			newListItem.appendChild(textNode);
+
+			newListItem.classList.add('todo__task-list__item');
+
+			let iconBallot = document.createElement("span");
+			iconBallot.className = "icon";
+			iconBallot.classList.add("ballot");
+
+			iconBallot.appendChild(textNode);
+
+			let newListItemText = document.createElement('span');
+			newListItemText.textContent = newTaskText; // Set the text is received from input
+
+			newListItemText.appendChild(textNode);
+
+			let iconClose = document.createElement("span");
+			iconClose.className = "close";
+
+			iconClose.appendChild(textNode);
+
+			newListItem.appendChild(iconBallot);
+			newListItem.appendChild(newListItemText);
+			newListItem.appendChild(iconClose);
+
+			listItems.appendChild(newListItem);
+
 			taskInput.value = '';
+
+			function toggleIcons() {
+				iconBallot.classList.toggle("ballot");
+				iconBallot.classList.toggle("ballot-check");
+			}
+
+			function deleteTask(event) {
+				if (event.target === iconClose) {
+					if (listItems.children.length > 1) {
+						listItems.removeChild(newListItem);
+					} else {
+						errorMessageLastItem();
+					}
+				}
+			}
+
+			newListItem.addEventListener("click", toggleIcons);
+			iconClose.addEventListener('click', deleteTask);
+		} else if (listItemText.trim() == '') {
+			errorMessageEmptyField();
 		}
 	}
 
-	function completeTask(event) {
-		let task = event.target;
-		task.classList.toggle('comleted');
-	}
-
-	let li = document.createElement("li");
-
-	li.addEventListener('click', completeTask);
+	addTaskButton.addEventListener('click', controlListContent);
+});
