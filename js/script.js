@@ -51,7 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
 					}
 				}
 			}
-			console.log(newListItem);
 		} else if (newTaskText == '') {
 			errorMessageEmptyField();
 		}
