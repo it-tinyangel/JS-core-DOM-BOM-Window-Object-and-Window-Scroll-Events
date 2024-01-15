@@ -142,7 +142,7 @@ ul.todo__task-list__items {
 }
 
 ul.todo__task-list__items li.todo__task-list__item {
-	padding: 12px 8px 12px 48px;
+	padding: 12px 0 12px 40px;
 	width: 100%;
 	position: relative;
 	border-radius: var(--base-spacing);
@@ -216,7 +216,7 @@ ul.todo__task-list__items li.todo__task-list__item span.close:after {
 	content: '\2715';
 	position: absolute;
 	top: 0;
-	left: 264px;
+	left: 245px;
 	right: 0;
 	bottom: 0;
 	font-size: 1.25em;
@@ -374,7 +374,7 @@ div.todo__alert {
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item {
-		padding: 10px 0px 10px 35px;
+		padding: 10px 0 10px 35px;
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item span.ballot:before {
@@ -445,22 +445,24 @@ div.todo__alert {
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item {
-		padding: 10px 8px 10px 40px;
+		padding: 10px 0 10px 35px
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item span.ballot:before {
 		width: 37px;
 		height: 37px;
+		font-size: 1.25em;
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item span.ballot-check:before {
 		width: 37px;
 		height: 37px;
+		font-size: 1.25em;
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item span.close:after {
-		left: 190px;
-		font-size: 1.25em;
+		left: 180px;
+		font-size: 1em;
 		width: 37px;
 		height: 37px;
 	}
