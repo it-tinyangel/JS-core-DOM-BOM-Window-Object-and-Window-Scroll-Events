@@ -1,54 +1,39 @@
 document.addEventListener('DOMContentLoaded', () => {
-	let taskInput = document.querySelector('.todo__new-task__input');
-	let listItems = document.querySelector('.todo__task-list__items');
-	let addTaskButton = document.querySelector('.todo__new-task__btn');
+	const taskInput = document.querySelector('.todo__new-task__input');
+	const todoList = document.querySelector('.todo__task-list__items');
+	const addTaskButton = document.querySelector('.todo__new-task__btn');
 
-	let alertEmptyInput = document.querySelector('.todo__alert.empty-input');
-	let alertLastItem = document.querySelector('.todo__alert.last-item');
+	const alertEmptyInput = document.querySelector('.todo__alert.empty-input');
+	const alertLastItem = document.querySelector('.todo__alert.last-item');
 
 	addTaskButton.addEventListener('click', controlListContent);
 
 	function controlListContent() {
-		let listItemText = taskInput.value;
+		const newTaskText = taskInput.value.trim();
 
-		if (listItemText.trim() != '') {
-			let newListItem = document.createElement("li");
-			let iconBallot = document.createElement("span");
-			let newListItemText = document.createElement('span');
-			let iconClose = document.createElement("span");
+		if (newTaskText !== '') {
+			const newListItem = document.createElement("li");
+			newListItem.className = "todo__task-list__item";
 
-			newListItem.className = "li";
-			iconBallot.className = "icon";
+			const iconBallot = document.createElement("span");
+			iconBallot.classList.add("icon", "ballot");
+
+			const newListItemText = document.createElement('span');
+			newListItemText.textContent = newTaskText;
+
+			const iconClose = document.createElement("span");
 			iconClose.className = "close";
 
-			newListItem.classList.add('todo__task-list__item');
-			iconBallot.classList.add("ballot");
+			newListItem.appendChild(iconBallot);
+			newListItem.appendChild(newListItemText);
+			newListItem.appendChild(iconClose);
 
-			setTextFromInput();
-
-			addSpanElements();
-			addLiElement();
+			todoList.appendChild(newListItem);
 
 			taskInput.value = '';
 
 			newListItem.addEventListener("click", toggleBallotIcons);
 			iconClose.addEventListener('click', deleteTask);
-
-			function setTextFromInput() {
-				let newTaskText = taskInput.value.trim();
-
-				newListItemText.textContent = newTaskText;
-			}
-
-			function addLiElement() {
-				listItems.appendChild(newListItem);
-			}
-
-			function addSpanElements() {
-				newListItem.appendChild(iconBallot);
-				newListItem.appendChild(newListItemText);
-				newListItem.appendChild(iconClose);
-			}
 
 			function toggleBallotIcons(event) {
 				if (event.target === newListItem || event.target === iconBallot || event.target === newListItemText) {
@@ -59,14 +44,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 			function deleteTask(event) {
 				if (event.target === iconClose) {
-					if (listItems.children.length > 1) {
-						listItems.removeChild(newListItem);
+					if (todoList.children.length > 1) {
+						todoList.removeChild(newListItem);
 					} else {
 						errorMessageLastItem();
 					}
 				}
 			}
-		} else if (listItemText.trim() == '') {
+			console.log(newListItem);
+		} else if (newTaskText == '') {
 			errorMessageEmptyField();
 		}
 	}
