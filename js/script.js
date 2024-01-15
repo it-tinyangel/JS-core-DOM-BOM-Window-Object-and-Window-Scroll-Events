@@ -51,7 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
 					}
 				}
 			}
-		} else if (newTaskText == '') {
+
+		} else if (newTaskText === '') {
 			errorMessageEmptyField();
 		}
 	}
