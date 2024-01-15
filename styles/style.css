@@ -9,6 +9,7 @@
 	--main-color: rgb(18, 112, 190);
 	--danger-color: rgb(228, 21, 24);
 	--primary-danger-color: rgb(255, 176, 176);
+	--main-bg-color: linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(19, 18, 18, 1) 50%);
 
 	--size-l: 2rem;
 	--size-m: 1rem;
@@ -41,10 +42,8 @@ body {
 	min-height: 100vh;
 	color: var(--dark-color);
 	font: var(--main-font);
-	background: rgb(255, 255, 255);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(50%, rgba(255, 255, 255, 1)), color-stop(50%, rgba(19, 18, 18, 1)));
-	background: -o-linear-gradient(top, rgba(255, 255, 255, 1) 50%, rgba(19, 18, 18, 1) 50%);
-	background: linear-gradient(180deg, rgba(255, 255, 255, 1) 50%, rgba(19, 18, 18, 1) 50%);
+	background: var(--light-color);
+	background: var(--main-bg-color);
 }
 
 section.todo {
@@ -109,6 +108,7 @@ div.todo__task-list {
 	-webkit-box-ordinal-group: 2;
 	    -ms-flex-order: 1;
 	        order: 1;
+	overflow: auto;
 }
 
 div.todo__split {
@@ -276,7 +276,6 @@ button.todo__new-task__btn:hover {
 	cursor: pointer;
 }
 
-/* Dislay hidden */
 .visually-hidden,
 div.todo__alert.visually-hidden {
 	display: none;
@@ -346,9 +345,8 @@ div.todo__alert {
 	}
 
 	section.todo {
-		background: var(--main-color);
+		background: var(--main-bg-color);
 	}
-
 
 	div.todo__content {
 		margin: 0 auto;
@@ -359,6 +357,9 @@ div.todo__alert {
 		    -ms-flex-direction: column;
 		        flex-direction: column;
 		border-radius: var(--base-spacing);
+		border: 2px solid var(--dark-color);
+		-webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+		        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 		background: var(--light-color);
 	}
 
@@ -373,22 +374,24 @@ div.todo__alert {
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item {
-		padding: 10px 8px 10px 40px;
+		padding: 10px 0px 10px 35px;
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item span.ballot:before {
 		width: 37px;
 		height: 37px;
+		font-size: 1.1em;
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item span.ballot-check:before {
 		width: 37px;
 		height: 37px;
+		font-size: 1.1em;
 	}
 
 	ul.todo__task-list__items li.todo__task-list__item span.close:after {
-		left: 235px;
-		font-size: 1.25em;
+		left: 215px;
+		font-size: .9em;
 		width: 37px;
 		height: 37px;
 	}
